@@ -1,7 +1,24 @@
 # spring boot initializes this docker-compose (with local profile) if `spring.docker.compose.profiles.active=local` property is set
 services:
+    app:
+        build: .
+        container_name: app_main
+        ports:
+            - "8080:8080"
+        depends_on:
+            - mysql
+        networks:
+            - note-app-network
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/noteappdb
+            SPRING_DATASOURCE_USERNAME: root
+            SPRING_DATASOURCE_PASSWORD: password
+        profiles:
+            - all
+
     emailhog:
-        image: 'mailhog/mailhog'
+        image: "mailhog/mailhog"
+        container_name: app_email
         ports:
             - 1025:1025
         networks:
@@ -10,12 +27,13 @@ services:
             - mailHog
             - all
     mysql:
-        image: 'mysql'
+        image: "mysql"
+        container_name: app_mysql
         environment:
             - "MYSQL_ROOT_PASSWORD=password"
             - "MYSQL_DATABASE=noteappdb"
         ports:
-            - 3306:3306
+            - 3307:3306
         networks:
             - note-app-network
         labels:
@@ -28,7 +46,6 @@ services:
 networks:
     note-app-network:
         driver: bridge
-
 
 #run using
 #docker-compose --profile all up OR

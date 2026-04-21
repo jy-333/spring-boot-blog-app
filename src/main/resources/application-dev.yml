@@ -1,13 +1,15 @@
 spring:
     thymeleaf:
         cache: false
-        prefix: file:src/main/resources/templates/  #directly serve from src folder instead of target
+        # prefix: file:src/main/resources/templates/  #directly serve from src folder instead of target
+        # prefix: classpath:/templates/
+        # suffix: .html
     web:
         resources:
             static-locations:
-                - file:src/main/resources/static/ #directly serve from src folder instead of target
-                - classpath:/META-INF/resources/
-                - classpath:/resources/
+                # - file:src/main/resources/static/ #directly serve from src folder instead of target
+                # - classpath:/META-INF/resources/
+                # - classpath:/resources/
                 - classpath:/static/
                 - classpath:/public/
             cache:
@@ -16,6 +18,8 @@ spring:
         static-path-pattern: /static/**
     jpa:
         show-sql: false
+        hibernate:
+            ddl-auto: update
     datasource:
         url: jdbc:h2:mem:testdb
     h2: #dev uses H2 and 'emailhog' docker container from docker-compose
