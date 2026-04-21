@@ -8,7 +8,7 @@
         <input class="form-control" id="id" placeholder="" required="" th:field="*{id}" type="hidden">
 
         <div class="col-md-4 mb-3">
-            <label for="title">Title</label>
+            <label for="title">Title of Notes</label>
             <input class="form-control" id="title" placeholder="" required="" th:field="*{title}" type="text"
                    value="">
             <span th:errors="*{title}" th:if="${#fields.hasErrors('title')}"></span>
@@ -16,14 +16,14 @@
         </div>
 
         <div class="col-md-4 mb-3">
-            <label for="content">Content</label>
+            <label for="content">Content of Notes</label>
             <input class="form-control" id="content" placeholder="" required="" th:field="*{content}"
                    type="text" value="">
             <span th:errors="*{content}" th:if="${#fields.hasErrors('content')}"></span>
         </div>
 
         <div class="col-md-4 mb-3">
-            <label for="files">File</label>
+            <label for="files">File Attachments</label>
             <input class="btn btn-secondary btn-sm btn-block" id="files" type="file" value="" name="files">
         </div>
 
