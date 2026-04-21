@@ -2,31 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <body>
-<div th:fragment="page-footer">
+    <div th:fragment="page-footer">
 
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-12 col-md">
-                <small class="d-block mb-3">&copy; <a href="http://ganeshtiwaridotcomdotnp.blogspot.com">Ganesh Tiwari</a>  2019</small>
+        <footer class="footer mt-auto py-3 bg-dark">
+            <div class="container text-center">
+                <span class="text-white">
+                    <strong>UECS2363 Software Construction and Configuration</strong><br>
+                    Spring Boot Blog App - UI modifications successfully implemented by Eric.
+                </span>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-</div>
+    </div>
 
 
-<div th:fragment="js-imports(scripts)">
-    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/webjars/popper.js/2.0.2/umd/popper.min.js"></script>
-    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <script th:src="@{/static/js/wro-commons.js}"></script>
+    <div th:fragment="js-imports(scripts)">
+        <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/webjars/popper.js/2.0.2/umd/popper.min.js"></script>
+        <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script th:src="@{/static/js/wro-commons.js}"></script>
 
-    <!-- we can pass in additional script if needed -->
-    <th:block th:replace="${scripts}"/>
+        <!-- we can pass in additional script if needed -->
+        <th:block th:replace="${scripts}" />
 
-</div>
+    </div>
 </body>
+
 </html>
-
-
-
